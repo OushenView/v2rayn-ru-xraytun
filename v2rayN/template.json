@@ -1,20 +1,20 @@
 {
-  "version": "RU-Xtun1",
+  "version": "V1-RU-Xtun",
   "routingItems": [
     {
-      "remarks": "Global",
+      "remarks": "Всё, кроме РФ (Whitelist)",
       "domainStrategy": "IPIfNonMatch",
-      "url": "https://raw.githubusercontent.com/OushenView/v2rayn-ru-xraytun/main/v2rayN/global.json"
+      "url": "https://github.com/OushenView/v2rayn-ru-xraytun/releases/download/v1/whitelist.json"
     },
     {
-      "remarks": "Whitelist",
+      "remarks": "Только заблокированное (Blacklist)",
       "domainStrategy": "IPIfNonMatch",
-      "url": "https://raw.githubusercontent.com/OushenView/v2rayn-ru-xraytun/main/v2rayN/whitelist.json"
+      "url": "https://github.com/OushenView/v2rayn-ru-xraytun/releases/download/v1/blacklist.json"
     },
     {
-      "remarks": "Blacklist",
+      "remarks": "Всё через прокси (Global)",
       "domainStrategy": "IPIfNonMatch",
-      "url": "https://raw.githubusercontent.com/OushenView/v2rayn-ru-xraytun/main/v2rayN/blacklist.json"
+      "url": "https://github.com/OushenView/v2rayn-ru-xraytun/releases/download/v1/global.json"
     }
   ]
 }

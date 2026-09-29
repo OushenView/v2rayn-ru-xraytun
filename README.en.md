@@ -5,15 +5,18 @@
 Three routing rule sets for [v2rayN](https://github.com/2dust/v2rayN) in **Xray TUN** mode.
 All of them use the `IPIfNonMatch` domain strategy. The rules rely on the
 [runetfreedom](https://github.com/runetfreedom/russia-v2ray-rules-dat) geo files.
+Ready-to-use files are in [Releases](https://github.com/OushenView/v2rayn-ru-xraytun/releases).
 
-| set in v2rayN | via proxy | direct |
+| set | via proxy | direct |
 |---|---|---|
-| `RU-Xtun1-Global` | everything except the local network | local network |
-| `RU-Xtun1-Whitelist` | everything outside Russia | Russian domains and IPs, local network, qBittorrent |
-| `RU-Xtun1-Blacklist` | resources blocked in Russia (`ru-blocked`), Discord, DNS 1.1.1.1 and 8.8.8.8 | everything else, qBittorrent |
+| Всё, кроме РФ (Whitelist) | everything outside Russia | Russian domains and IPs, local network, qBittorrent |
+| Только заблокированное (Blacklist) | resources blocked in Russia (`ru-blocked`), Discord, DNS 1.1.1.1 and 8.8.8.8 | everything else, qBittorrent |
+| Всё через прокси (Global) | everything except the local network | local network |
 
 QUIC (UDP/443) is blocked in every set, so browsers fall back to TCP, where Xray can see the site name.
-The number in the set name is its version.
+
+In v2rayN, the name gets a version prefix: `V1-RU-Xtun-Всё, кроме РФ (Whitelist)`. `V1` is the
+version of the sets and matches the release number.
 
 ## Requirements
 
@@ -33,10 +36,11 @@ The number in the set name is its version.
 2. **Settings → Option Setting → v2rayN settings → Routing rules source (optional).** Paste
    the link and save:
    ```
-   https://raw.githubusercontent.com/OushenView/v2rayn-ru-xraytun/main/v2rayN/template.json
+   https://github.com/OushenView/v2rayn-ru-xraytun/releases/latest/download/template.json
    ```
-3. **Settings → Routing Setting → Import Rules.** The sets `RU-Xtun1-Global`,
-   `RU-Xtun1-Whitelist` and `RU-Xtun1-Blacklist` appear.
+3. **Settings → Routing Setting → Import Rules.** Three sets appear:
+   `V1-RU-Xtun-Всё, кроме РФ (Whitelist)`, `V1-RU-Xtun-Только заблокированное (Blacklist)`
+   and `V1-RU-Xtun-Всё через прокси (Global)`.
 4. Pick a set in the main window or in the tray menu.
 
 Import while the proxy is connected: v2rayN downloads the rules through it.
@@ -45,17 +49,25 @@ If the core fails to start with an error about `ru-blocked`, the geo files are s
 ones. Repeat step 1 or update GeoFiles via "Check Update".
 
 You can also add a single set without the template. In "Routing Setting", create a set, choose
-`IPIfNonMatch` as the "Domain strategy", paste the link to a file from the [`v2rayN/`](v2rayN)
-folder into "URL (optional)" and click "Import Rules From Subscription URL".
+`IPIfNonMatch` as the "Domain strategy", paste a link to a release file into "URL (optional)" and
+click "Import Rules From Subscription URL". Links to the files of the latest release:
+
+```
+https://github.com/OushenView/v2rayn-ru-xraytun/releases/latest/download/whitelist.json
+https://github.com/OushenView/v2rayn-ru-xraytun/releases/latest/download/blacklist.json
+https://github.com/OushenView/v2rayn-ru-xraytun/releases/latest/download/global.json
+```
 
 ## Updating
 
-v2rayN doesn't update the sets on its own. Two ways:
+v2rayN doesn't update the sets on its own. New versions are published as
+[releases](https://github.com/OushenView/v2rayn-ru-xraytun/releases). Two ways to update:
 
-- Run "Import Rules" again. A new version comes with a new number in the name (`RU-Xtun2-…`);
+- Run "Import Rules" again. A new version comes with a new number in the name (`V2-RU-Xtun-…`);
   delete the old sets.
-- One set at a time: open it, paste its file link into "URL (optional)", click "Import Rules From
-  Subscription URL" and answer "No" to "Do you want to append rules?" — the rules are replaced.
+- One set at a time: open it, paste its release file link into "URL (optional)", click "Import
+  Rules From Subscription URL" and answer "No" to "Do you want to append rules?" — the rules are
+  replaced.
 
 ## Customizing
 
