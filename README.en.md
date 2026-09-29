@@ -10,8 +10,8 @@ Ready-to-use files are in [Releases](https://github.com/OushenView/v2rayn-ru-xra
 | set | via proxy | direct |
 |---|---|---|
 | Всё, кроме РФ (Whitelist) | everything outside Russia | Russian domains and IPs, local network, qBittorrent |
-| Только заблокированное (Blacklist) | resources blocked in Russia (`ru-blocked`), Discord, DNS 1.1.1.1 and 8.8.8.8 | everything else, qBittorrent |
-| Всё через прокси (Global) | everything except the local network | local network |
+| Заблокированное (Blacklist) | resources blocked in Russia (`ru-blocked`), Discord, DNS 1.1.1.1 and 8.8.8.8 | everything else, qBittorrent |
+| Всё (Global) | everything except the local network | local network |
 
 QUIC (UDP/443) is blocked in every set, so browsers fall back to TCP, where Xray can see the site name.
 
@@ -39,8 +39,8 @@ version of the sets and matches the release number.
    https://github.com/OushenView/v2rayn-ru-xraytun/releases/latest/download/template.json
    ```
 3. **Settings → Routing Setting → Import Rules.** Three sets appear:
-   `V1-RU-Xtun-Всё, кроме РФ (Whitelist)`, `V1-RU-Xtun-Только заблокированное (Blacklist)`
-   and `V1-RU-Xtun-Всё через прокси (Global)`.
+   `V1-RU-Xtun-Всё, кроме РФ (Whitelist)`, `V1-RU-Xtun-Заблокированное (Blacklist)`
+   and `V1-RU-Xtun-Всё (Global)`.
 4. Pick a set in the main window or in the tray menu.
 
 Import while the proxy is connected: v2rayN downloads the rules through it.

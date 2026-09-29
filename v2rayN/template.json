@@ -7,12 +7,12 @@
       "url": "https://github.com/OushenView/v2rayn-ru-xraytun/releases/download/v1/whitelist.json"
     },
     {
-      "remarks": "Только заблокированное (Blacklist)",
+      "remarks": "Заблокированное (Blacklist)",
       "domainStrategy": "IPIfNonMatch",
       "url": "https://github.com/OushenView/v2rayn-ru-xraytun/releases/download/v1/blacklist.json"
     },
     {
-      "remarks": "Всё через прокси (Global)",
+      "remarks": "Всё (Global)",
       "domainStrategy": "IPIfNonMatch",
       "url": "https://github.com/OushenView/v2rayn-ru-xraytun/releases/download/v1/global.json"
     }
