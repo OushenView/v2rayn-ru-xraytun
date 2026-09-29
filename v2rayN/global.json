@@ -1,0 +1,34 @@
+[
+  {
+    "outboundTag": "block",
+    "port": "443",
+    "network": "udp",
+    "enabled": true,
+    "remarks": "Block UDP 443 (QUIC)"
+  },
+  {
+    "outboundTag": "direct",
+    "ip": [
+      "geoip:private"
+    ],
+    "enabled": true,
+    "remarks": "Direct LAN IP"
+  },
+  {
+    "outboundTag": "direct",
+    "domain": [
+      "geosite:private"
+    ],
+    "enabled": true,
+    "remarks": "Direct LAN domains"
+  },
+  {
+    "outboundTag": "proxy",
+    "ip": [
+      "0.0.0.0/0",
+      "::/0"
+    ],
+    "enabled": true,
+    "remarks": "Proxy Other"
+  }
+]

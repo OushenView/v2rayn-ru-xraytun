@@ -1,0 +1,87 @@
+[
+  {
+    "outboundTag": "proxy",
+    "process": [
+      "Discord.exe",
+      "example.exe"
+    ],
+    "enabled": true,
+    "remarks": "Proxy MY process"
+  },
+  {
+    "outboundTag": "direct",
+    "process": [
+      "qbittorrent.exe",
+      "example.exe"
+    ],
+    "enabled": true,
+    "remarks": "Direct MY process"
+  },
+  {
+    "outboundTag": "direct",
+    "protocol": [
+      "bittorrent"
+    ],
+    "enabled": true,
+    "remarks": "Direct bittorrent"
+  },
+  {
+    "outboundTag": "block",
+    "port": "443",
+    "network": "udp",
+    "enabled": true,
+    "remarks": "Block UDP 443 (QUIC)"
+  },
+  {
+    "outboundTag": "direct",
+    "ip": [
+      "geoip:private"
+    ],
+    "enabled": true,
+    "remarks": "Direct LAN IP"
+  },
+  {
+    "outboundTag": "direct",
+    "domain": [
+      "geosite:private"
+    ],
+    "enabled": true,
+    "remarks": "Direct LAN domains"
+  },
+  {
+    "outboundTag": "proxy",
+    "ip": [
+      "1.0.0.1",
+      "1.1.1.1",
+      "8.8.8.8",
+      "8.8.4.4"
+    ],
+    "enabled": true,
+    "remarks": "Proxy DNS IP"
+  },
+  {
+    "outboundTag": "proxy",
+    "ip": [
+      "geoip:ru-blocked"
+    ],
+    "enabled": true,
+    "remarks": "Proxy ru-blocked IP"
+  },
+  {
+    "outboundTag": "proxy",
+    "domain": [
+      "geosite:ru-blocked"
+    ],
+    "enabled": true,
+    "remarks": "Proxy ru-blocked domains"
+  },
+  {
+    "outboundTag": "direct",
+    "ip": [
+      "0.0.0.0/0",
+      "::/0"
+    ],
+    "enabled": true,
+    "remarks": "Direct Other"
+  }
+]

@@ -1,0 +1,75 @@
+[
+  {
+    "outboundTag": "direct",
+    "ip": [
+      "203.0.113.1"
+    ],
+    "enabled": false,
+    "remarks": "Direct MY IP (enter your server IP and enable)"
+  },
+  {
+    "outboundTag": "direct",
+    "process": [
+      "qbittorrent.exe",
+      "example.exe"
+    ],
+    "enabled": true,
+    "remarks": "Direct MY process"
+  },
+  {
+    "outboundTag": "direct",
+    "protocol": [
+      "bittorrent"
+    ],
+    "enabled": true,
+    "remarks": "Direct bittorrent"
+  },
+  {
+    "outboundTag": "block",
+    "port": "443",
+    "network": "udp",
+    "enabled": true,
+    "remarks": "Block UDP 443 (QUIC)"
+  },
+  {
+    "outboundTag": "direct",
+    "ip": [
+      "geoip:private"
+    ],
+    "enabled": true,
+    "remarks": "Direct LAN IP"
+  },
+  {
+    "outboundTag": "direct",
+    "domain": [
+      "geosite:private"
+    ],
+    "enabled": true,
+    "remarks": "Direct LAN domains"
+  },
+  {
+    "outboundTag": "direct",
+    "domain": [
+      "geosite:category-ru"
+    ],
+    "enabled": true,
+    "remarks": "Direct RU domains"
+  },
+  {
+    "outboundTag": "direct",
+    "ip": [
+      "geoip:ru"
+    ],
+    "enabled": true,
+    "remarks": "Direct RU IP"
+  },
+  {
+    "outboundTag": "proxy",
+    "ip": [
+      "0.0.0.0/0",
+      "::/0"
+    ],
+    "enabled": true,
+    "remarks": "Proxy Other"
+  }
+]

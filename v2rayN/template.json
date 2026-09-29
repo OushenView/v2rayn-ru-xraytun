@@ -1,0 +1,20 @@
+{
+  "version": "RU-Xtun1",
+  "routingItems": [
+    {
+      "remarks": "Global",
+      "domainStrategy": "IPIfNonMatch",
+      "url": "https://raw.githubusercontent.com/OushenView/v2rayn-ru-xraytun/main/v2rayN/global.json"
+    },
+    {
+      "remarks": "Whitelist",
+      "domainStrategy": "IPIfNonMatch",
+      "url": "https://raw.githubusercontent.com/OushenView/v2rayn-ru-xraytun/main/v2rayN/whitelist.json"
+    },
+    {
+      "remarks": "Blacklist",
+      "domainStrategy": "IPIfNonMatch",
+      "url": "https://raw.githubusercontent.com/OushenView/v2rayn-ru-xraytun/main/v2rayN/blacklist.json"
+    }
+  ]
+}
