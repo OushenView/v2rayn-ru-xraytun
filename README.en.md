@@ -140,9 +140,18 @@ destination IP and, separately, the site name from SNI.
   that name and matches IP rules against the DNS answer instead of the real address. That adds
   delay to new connections (4 seconds when DNS doesn't answer) and makes IP rules miss where the
   SNI name doesn't match the address, for example Reality with a borrowed SNI.
+- **`IPIfNonMatch`, not `AsIs`.** In a clean Xray TUN setup there is no difference: `AsIs` also
+  makes no DNS queries, IP rules see the real address, and process rules work the same way.
+  The difference shows up where Xray sees only the site name: "Legacy TUN Protect" is on (the
+  TUN runs on sing-box and hands traffic to Xray without `routeOnly`), a browser goes through
+  the system proxy, an app is set to use v2rayN's SOCKS port, or FakeIP is on. In these cases
+  `AsIs` silently skips geoip rules: in Blacklist, a site blocked by IP goes direct.
+  `IPIfNonMatch` resolves the name and checks geoip. The cost is one DNS query for such
+  a connection, usually from cache.
 - **The last rule matches by IP** (`0.0.0.0/0`, `::/0`), not by port. In TUN it matches at once,
   without DNS. Connections that only carry a name (system proxy, SOCKS in apps) go through
-  a second pass: Xray resolves the name and checks the geoip rules.
+  a second pass: Xray resolves the name and checks the geoip rules. A port-based last rule
+  would match everything in the first pass and turn `IPIfNonMatch` into `AsIs`.
 
 ## Credits
 
