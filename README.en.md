@@ -18,6 +18,10 @@ QUIC (UDP/443) is blocked in every set, so browsers fall back to TCP, where Xray
 In v2rayN, the name gets a version prefix: `V1-RU-Xtun-Всё, кроме РФ (Whitelist)`. `V1` is the
 version of the sets and matches the release number.
 
+This is how the Whitelist set looks in v2rayN after import:
+
+![The V1-RU-Xtun-Всё, кроме РФ (Whitelist) set in v2rayN routing settings](docs/whitelist.png)
+
 ## Requirements
 
 - v2rayN 7.24.7 or newer with the Xray core (tested on 7.25.2). Since 7.24.7, v2rayN runs
@@ -26,6 +30,9 @@ version of the sets and matches the release number.
   "Legacy TUN Protect". Since v2rayN 7.24.3 it is on by default, and then the TUN runs
   on sing-box.
 - Geo files and DNS from the "Russia" preset — step 1 below.
+- v2rayN on a computer. These files won't work as is in v2rayNG on Android. The process rules
+  there find no Android packages, v2rayNG keeps them with no conditions, and the core fails to
+  start with `this rule has no effective fields`.
 
 ## Installation
 
