@@ -10,7 +10,7 @@ Ready-to-use files are in [Releases](https://github.com/OushenView/v2rayn-ru-xra
 | set | via proxy | direct |
 |---|---|---|
 | Всё, кроме РФ (Whitelist) | everything outside Russia | Russian domains and IPs, local network, qBittorrent |
-| Заблокированное (Blacklist) | resources blocked in Russia (`ru-blocked`), Discord, DNS 1.1.1.1 and 8.8.8.8 | everything else, qBittorrent |
+| Заблокированное (Blacklist) | resources blocked in Russia (`ru-blocked`), Discord, Cloudflare and Google DNS and DoH | everything else, qBittorrent |
 | Всё (Global) | everything except the local network | local network |
 
 QUIC (UDP/443) is blocked in every set, so browsers fall back to TCP, where Xray can see the site name.
@@ -20,9 +20,11 @@ version of the sets and matches the release number.
 
 ## Requirements
 
-- v2rayN with the Xray core (tested on 7.25.2).
-- TUN enabled. In "Settings → Option Setting → Tun Mode settings", "Legacy TUN Protect" must be
-  off, otherwise the TUN is provided by sing-box.
+- v2rayN 7.24.7 or newer with the Xray core (tested on 7.25.2). Since 7.24.7, v2rayN runs
+  the Xray TUN with `routeOnly`, so IP rules see the real destination address.
+- TUN on the Xray core. In "Settings → Option Setting → Tun Mode settings", turn off
+  "Legacy TUN Protect". Since v2rayN 7.24.3 it is on by default, and then the TUN runs
+  on sing-box.
 - Geo files and DNS from the "Russia" preset — step 1 below.
 
 ## Installation
@@ -107,6 +109,19 @@ by process name. If you use another client, add it to `Direct MY process`.
 
 Whitelist has a disabled `Direct MY IP` rule. Enter your server's IP and enable the rule if you
 reach the server over SSH or through a nested client.
+
+## FAQ
+
+**The log shows `[Error] app/router: Unables to find local process name: common/net: not found`.**
+The rules aren't broken. This is how Xray reports that Windows didn't tell it which process
+owns the connection. One-shot UDP sockets, such as DNS queries, are already closed by then.
+For TCP, Xray only looks at established connections. For some programs with elevated
+privileges, such as antivirus software, the process isn't found either. The process rule
+simply doesn't match that connection, and routing moves on. v2rayN's own TUN rule also checks
+the process, so the error shows up even without our rules and without the `example.exe`
+placeholder. It's a known Xray limitation:
+[#6588](https://github.com/XTLS/Xray-core/issues/6588),
+[#6535](https://github.com/XTLS/Xray-core/issues/6535).
 
 ## Why separate rules for Xray TUN
 
